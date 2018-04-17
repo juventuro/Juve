@@ -27,6 +27,15 @@ WP_CLI="sudo -u kusanagi -- /usr/local/bin/wp --path=/home/kusanagi/juve/Documen
 # Line Notify
 # ------------------------------------------------------------------------------
 # アクセストークン
+# ------------------------------------------------------------------------------
+#    - 暗号化の方法
+#     ACCESS_TOKEN=XXXXXXXX
+#     OpenSSL_key=~/.ssh/id_rsa.pem
+#     echo ${ACCESS_TOKEN} | \
+#         openssl rsautl -encrypt -pubin -inkey ${OpenSSL_key} | \
+#         openssl base64 -e
+#
+# ------------------------------------------------------------------------------
 #   - 検証
 # ENC_ACCESS_TOKEN="
 # Uni0E6c/IENzr8pS8Zf5EUWzaNZHsIyOTwPORbsq1sVYcq26Gbq9BkcXU9+ObEqP

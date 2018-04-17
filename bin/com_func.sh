@@ -57,4 +57,3 @@ function func_get_num_sunday() {
     (( NUMBER = RECORDS - 2 ))
     return ${NUMBER}
 }
-
