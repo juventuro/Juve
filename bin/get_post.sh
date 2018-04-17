@@ -24,7 +24,6 @@ FIELDS="ID,post_name"
 # ------------------------------------------------------------------------------
 # メイン処理
 # ------------------------------------------------------------------------------
-
 # 実行日が第五週目かを判定する。
 # ------------------------------------------------------------------------------
 func_get_num_sunday $(date '+%Y:%m:%d')
@@ -60,14 +59,18 @@ done
 
 # 前回の練習日時を YYYY-MM-DD 形式に変換
 LAST_DAT=$(printf "%04d-%02d-%02d\n" ${CHECK_YEAR} ${CHECK_MONTH} ${CHECK_DAY})
+if [[ ${LAST_DAT} == "0000-00-00" ]]; then
+    logger -ip cron.warn "${SCRIPT_NAME}: Getting last date has failed."
+    exit 1
+fi
 
 # 投稿一覧から前回練習の投稿IDを取得する。
 POST_ID=$(${WP_CLI} post list --format=csv --fields=${FIELDS} | \
     awk -F',' -v LAST_DAT=${LAST_DAT} '{if($2 ~ LAST_DAT"_practice") print $1}')
 
 if [[ -z ${POST_ID} ]]; then
-    logger -ip cron.warn "${SCRIPT_NAME}: Getting ${LAST_DAT}'s post has failed.'"
-    exit 1
+    logger -ip cron.warn "${SCRIPT_NAME}: Getting ${LAST_DAT}'s post has failed."
+    exit 2
 fi
 
 # 投稿IDから投稿内容を取得する。
@@ -85,6 +88,7 @@ STIKER=$(func_get_sticker)
 
 # Line Notify でのメッセージ通知
 STATUS=$(func_send_notify "${TEXT}" ${STIKER})
+func_send_mon_notify "Line Notify status:${STATUS}"
 logger -ip cron.info "${SCRIPT_NAME}:${STATUS}"
 
 exit 0

@@ -2,7 +2,6 @@
 # ------------------------------------------------------------------------------
 # 共通関数定義
 # ------------------------------------------------------------------------------
-
 # エラー出力関数
 function func_disp_error_msg() {
     echo -e "${ANSI_RED}${@}${ANSI_END}\n"
@@ -16,6 +15,7 @@ function func_disp_warning_msg() {
 # ------------------------------------------------------------------------------
 # LINE Notify
 # ------------------------------------------------------------------------------
+# メッセージ送信
 function func_send_notify() {
     CONTENT=${1}
     STKPKGID=${2:-1}
@@ -25,6 +25,14 @@ function func_send_notify() {
         -F "message=${CONTENT}" \
         -F "stickerPackageId=${STKPKGID}" \
         -F "stickerId=${STKID}" \
+        ${API_URL}
+}
+# 監視用メッセージ送信
+function func_send_mon_notify() {
+    CONTENT=${1}
+    curl -X POST \
+        -H "Authorization: Bearer ${MON_ACCESS_TOKEN}" \
+        -F "message=${CONTENT}" \
         ${API_URL}
 }
 

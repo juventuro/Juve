@@ -36,15 +36,17 @@ WP_CLI="sudo -u kusanagi -- /usr/local/bin/wp --path=/home/kusanagi/juve/Documen
 #         openssl base64 -e
 #
 # ------------------------------------------------------------------------------
-#   - 検証
-# ENC_ACCESS_TOKEN="
-# Uni0E6c/IENzr8pS8Zf5EUWzaNZHsIyOTwPORbsq1sVYcq26Gbq9BkcXU9+ObEqP
-# f1lUbn+Zd4xCeypXDDFa+bO7QO3LITtVb0MOeKgMPl1zJxtqGV5B92rMrmvL60hU
-# /sGhNm05f1Gzx2t8XQIxRb+g5OSwv9rk1vc1Q2eg9QKSoTS4EnuYy5ObPaIBcmBC
-# Ek8I2opGQvcbV+t8sokrxn6z5MM512q7cVItbPblcWIRXMmo0zkCUDMIGMOydT2B
-# 4qwpAFd4U/H0hVPBCynPzzHX0lsduBkAPG0MI9Pt04CdXeBxpnpLeEJN4ChqFXCK
-# 3Uq3f9MQRk0LuiwLhh28Xw==
-# "
+# 暗号アクセストークン
+# ------------------------------------------------------------------------------
+#   - モニタ用
+ENC_MON_ACCESS_TOKEN="
+Uni0E6c/IENzr8pS8Zf5EUWzaNZHsIyOTwPORbsq1sVYcq26Gbq9BkcXU9+ObEqP
+f1lUbn+Zd4xCeypXDDFa+bO7QO3LITtVb0MOeKgMPl1zJxtqGV5B92rMrmvL60hU
+/sGhNm05f1Gzx2t8XQIxRb+g5OSwv9rk1vc1Q2eg9QKSoTS4EnuYy5ObPaIBcmBC
+Ek8I2opGQvcbV+t8sokrxn6z5MM512q7cVItbPblcWIRXMmo0zkCUDMIGMOydT2B
+4qwpAFd4U/H0hVPBCynPzzHX0lsduBkAPG0MI9Pt04CdXeBxpnpLeEJN4ChqFXCK
+3Uq3f9MQRk0LuiwLhh28Xw==
+"
 #   - 商用
 ENC_ACCESS_TOKEN="
 u9/lWTrjx9V3PgavnWCvBjWn3IgSMCWKU2lCqT5OF/fqnuUzPDQYkcJxBYiAjnDe
@@ -55,6 +57,14 @@ PuxM78ZHNnqCnMhKomqYKOXs7STZsVJwgZVzAoZDiFrrzjAPu4RVf6AEV8dOCTMG
 /H3BmOoHgKy34xQkdf22EA==
 "
 
+# アクセストークン復号化
+# ------------------------------------------------------------------------------
+export MON_ACCESS_TOKEN=$(
+    echo ${ENC_MON_ACCESS_TOKEN} | \
+        openssl base64 -d | \
+        openssl rsautl -decrypt -inkey ~/.ssh/id_rsa
+)
+
 export ACCESS_TOKEN=$(
     echo ${ENC_ACCESS_TOKEN} | \
         openssl base64 -d | \
@@ -63,6 +73,7 @@ export ACCESS_TOKEN=$(
 export API_URL="https://notify-api.line.me/api/notify"
 
 # Stikerリスト
+# ------------------------------------------------------------------------------
 export STK_LIST="
 1:2
 1:107

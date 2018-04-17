@@ -26,12 +26,16 @@ FIELDS="post_name,post_modified,post_status"
 # ------------------------------------------------------------------------------
 # 前日の日付を取得する。
 CHECK_DATE=$(date '+%Y-%m-%d' --date "1 days ago")
+if [[ -z ${CHECK_DATE} ]]; then
+    logger -ip cron.warn "${SCRIPT_NAME}: Getting check date has failed.(${CHECK_DATE})"
+else
+    func_send_mon_notify "Check date is ${CHECK_DATE}"
+fi
 
 # 前日に投稿されたメッセージを抽出する。
 #   wp post list の post_modified フィールドの更新日から取得します。
 POST_URLS=$(${WP_CLI} post list --format=csv --fields=${FIELDS} | \
     awk -F',' -v CHECK_DATE=${CHECK_DATE} '{if($2 ~ CHECK_DATE && $3 == "publish") print "juventuro.com/"$1}')
-
 if [[ -z ${POST_URLS} ]]; then
     exit 0
 fi
@@ -51,6 +55,7 @@ EOT
 
 # Line Notify でのメッセージ通知
 STATUS=$(func_send_notify "${TEXT}" 2 161)
+func_send_mon_notify "Line Notify status:${STATUS}"
 logger -ip cron.info "${SCRIPT_NAME}:${STATUS}"
 
 exit 0
