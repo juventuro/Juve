@@ -64,6 +64,8 @@ if [[ ${LAST_DAT} == "0000-00-00" ]]; then
     exit 1
 fi
 
+func_send_mon_notify "Line Notify Last day is ${LAST_DAT}"
+
 # 投稿一覧から前回練習の投稿IDを取得する。
 POST_ID=$(${WP_CLI} post list --format=csv --fields=${FIELDS} | \
     awk -F',' -v LAST_DAT=${LAST_DAT} '{if($2 ~ LAST_DAT"_practice") print $1}')
