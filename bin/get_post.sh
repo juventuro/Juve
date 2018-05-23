@@ -72,6 +72,13 @@ POST_ID=$(${WP_CLI} post list --format=csv --fields=${FIELDS} | \
 
 if [[ -z ${POST_ID} ]]; then
     logger -ip cron.warn "${SCRIPT_NAME}: Getting ${LAST_DAT}'s post has failed."
+
+    TEXT=$(cat << EOT
+
+    ${LAST_DAT}の練習内容は投稿されてません💦
+EOT
+)
+    func_send_notify "${TEXT}"
     exit 2
 fi
 
