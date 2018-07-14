@@ -58,7 +58,7 @@ while (( check_flg == 1 )); do
 done
 
 # 前回の練習日時を YYYY-MM-DD 形式に変換
-LAST_DAT=$(printf "%04d-%02d-%02d\n" ${CHECK_YEAR} ${CHECK_MONTH} ${CHECK_DAY})
+LAST_DAT=$(printf "%04s-%02s-%02s\n" ${CHECK_YEAR} ${CHECK_MONTH} ${CHECK_DAY})
 if [[ ${LAST_DAT} == "0000-00-00" ]]; then
     logger -ip cron.warn "${SCRIPT_NAME}: Getting last date has failed."
     exit 1
