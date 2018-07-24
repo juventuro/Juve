@@ -39,22 +39,15 @@ WP_CLI="sudo -u kusanagi -- /usr/local/bin/wp --path=/home/kusanagi/juve/Documen
 # 暗号アクセストークン
 # ------------------------------------------------------------------------------
 #   - モニタ用
-ENC_MON_ACCESS_TOKEN="
-Uni0E6c/IENzr8pS8Zf5EUWzaNZHsIyOTwPORbsq1sVYcq26Gbq9BkcXU9+ObEqP
-f1lUbn+Zd4xCeypXDDFa+bO7QO3LITtVb0MOeKgMPl1zJxtqGV5B92rMrmvL60hU
-/sGhNm05f1Gzx2t8XQIxRb+g5OSwv9rk1vc1Q2eg9QKSoTS4EnuYy5ObPaIBcmBC
-Ek8I2opGQvcbV+t8sokrxn6z5MM512q7cVItbPblcWIRXMmo0zkCUDMIGMOydT2B
-4qwpAFd4U/H0hVPBCynPzzHX0lsduBkAPG0MI9Pt04CdXeBxpnpLeEJN4ChqFXCK
-3Uq3f9MQRk0LuiwLhh28Xw==
-"
+ENC_MON_ACCESS_TOKEN=""
 #   - 商用
 ENC_ACCESS_TOKEN="
-u9/lWTrjx9V3PgavnWCvBjWn3IgSMCWKU2lCqT5OF/fqnuUzPDQYkcJxBYiAjnDe
-5dIkEunSsaYrm0BOWi8IKwMFam2PExnjRqP+Fcv/ZPKgmBv3syQRNBuxt3vrV4U7
-cHnX51DPbdpR0ukJb2/bTLEfYyghvt8CnwS8yApOEup+MtLB0R3ueo5ikEQoaDah
-qXEfDyYECnivtBqkfNoYhzbz/UwTT5mXORmwpl8xMKOi+uq6UUMRWxLe4uMdQvqG
-PuxM78ZHNnqCnMhKomqYKOXs7STZsVJwgZVzAoZDiFrrzjAPu4RVf6AEV8dOCTMG
-/H3BmOoHgKy34xQkdf22EA==
+ND52b48n0eJnweNq/W26e4VHYa6/x3TvL9WpJ2Pe60FlAtUAf+CoWH4zpNfxyjPM
+nxRWwF0L6lOJyyACm/JR2nPlKQF1zglnmk2kXqmZiCN/pnbtZCGwo57K7wEldVs5
+tRifhcXOWUogQgHhN0dqcRxbrzFjLrSJ0hRIGcktvdDfaP7NoM8jWQa5Ar2jos5J
+siGv/nYTNrRSQ/SrNtuGngD8yxPkyogH8Y295bjbdGFPhRG/7ibnFF8/ZHg/TFaD
+R6hXuj6CMzNP8YSaztG/Yd18UZRH7+dS89HBYrBHzuCKjDoUQxgKTDue3VtnXUCV
+sDu31CI/lr9Y22XlG/q13A==
 "
 
 # アクセストークン復号化
