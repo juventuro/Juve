@@ -28,8 +28,8 @@ FIELDS="post_name,post_modified,post_status"
 CHECK_DATE=$(date '+%Y-%m-%d' --date "1 days ago")
 if [[ -z ${CHECK_DATE} ]]; then
     logger -ip cron.warn "${SCRIPT_NAME}: Getting check date has failed.(${CHECK_DATE})"
-else
-    func_send_mon_notify "Check date is ${CHECK_DATE}"
+#else
+#    func_send_mon_notify "Check date is ${CHECK_DATE}"
 fi
 
 # 前日に投稿されたメッセージを抽出する。
@@ -55,7 +55,7 @@ EOT
 
 # Line Notify でのメッセージ通知
 STATUS=$(func_send_notify "${TEXT}" 2 161)
-func_send_mon_notify "Line Notify status:${STATUS}"
+#func_send_mon_notify "Line Notify status:${STATUS}"
 logger -ip cron.info "${SCRIPT_NAME}:${STATUS}"
 
 exit 0

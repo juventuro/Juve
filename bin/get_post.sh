@@ -64,7 +64,7 @@ if [[ ${LAST_DAT} == "0000-00-00" ]]; then
     exit 1
 fi
 
-func_send_mon_notify "Line Notify Last day is ${LAST_DAT}"
+#func_send_mon_notify "Line Notify Last day is ${LAST_DAT}"
 
 # 投稿一覧から前回練習の投稿IDを取得する。
 POST_ID=$(${WP_CLI} post list --format=csv --fields=${FIELDS} | \
@@ -97,7 +97,7 @@ STIKER=$(func_get_sticker)
 
 # Line Notify でのメッセージ通知
 STATUS=$(func_send_notify "${TEXT}" ${STIKER})
-func_send_mon_notify "Line Notify status:${STATUS}"
+#func_send_mon_notify "Line Notify status:${STATUS}"
 logger -ip cron.info "${SCRIPT_NAME}:${STATUS}"
 
 exit 0
