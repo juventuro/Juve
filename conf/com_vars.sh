@@ -42,12 +42,12 @@ WP_CLI="sudo -u kusanagi -- /usr/local/bin/wp --path=/home/kusanagi/juve/Documen
 ENC_MON_ACCESS_TOKEN=""
 #   - 商用
 ENC_ACCESS_TOKEN="
-ND52b48n0eJnweNq/W26e4VHYa6/x3TvL9WpJ2Pe60FlAtUAf+CoWH4zpNfxyjPM
-nxRWwF0L6lOJyyACm/JR2nPlKQF1zglnmk2kXqmZiCN/pnbtZCGwo57K7wEldVs5
-tRifhcXOWUogQgHhN0dqcRxbrzFjLrSJ0hRIGcktvdDfaP7NoM8jWQa5Ar2jos5J
-siGv/nYTNrRSQ/SrNtuGngD8yxPkyogH8Y295bjbdGFPhRG/7ibnFF8/ZHg/TFaD
-R6hXuj6CMzNP8YSaztG/Yd18UZRH7+dS89HBYrBHzuCKjDoUQxgKTDue3VtnXUCV
-sDu31CI/lr9Y22XlG/q13A==
+evgyMx+y8NfTkbxmVpvZXCq2aBU8z9TOR/tXxgOJdv1I6io1nu+SqhUg0hGV77fz
+DYhxg5Z6m1fqelQKA8Ih1aLN4vP7WQQnYZYvjR9OMwK94fampKOlH1IKLKTIeVMQ
+60W/GTw8RRC2tv63oYQnzuf8KLzDE27loG5Rl7p/8/oS8HxZ85QMsYdmC4GNjWuf
+ZnrWUhCUDczKVXHDFh9AUN9wh65FHBDGMDtUkbbRaEpf882dIjkJy4XAuui7Nees
+N4T+yp5saROT36+O/X4eRtqTMcrsk6LPPAiTBTjaXTrBGibtZIUjuHQKaPDcWxQL
+C5zFMFz6Br2JIUrt1UIwtw==
 "
 
 # アクセストークン復号化
